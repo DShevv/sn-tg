@@ -38,12 +38,12 @@ const Mass = styled.div`
   color: var(--tg-theme-hint-color);
 `;
 
-export default function ProductItem({ itemId, children }) {
+export default function ProductItem({ item, children }) {
   return (
-    <Container to={`${itemId}`}>
+    <Container to={`${item.id}`}>
       <Title>{children}</Title>
       <Info>
-        <Price>$10.99</Price>
+        <Price>${item.price}</Price>
         <Mass>80 pills</Mass>
       </Info>
     </Container>

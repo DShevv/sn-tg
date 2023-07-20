@@ -1,11 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { useTelegram } from "../hooks/useTelegram";
 
 export const Context = createContext(null);
 
 function Provider(props) {
   const [cartItems, setCartItems] = useState([]);
-  const { tg } = useTelegram();
 
   const addItem = (item) => {
     if (isInCart(item.id)) {
@@ -58,14 +56,6 @@ function Provider(props) {
   const getCartPrice = () => {
     return cartItems.reduce((acc, elem) => acc + elem.price * elem.count, 0);
   };
-
-  useEffect(() => {
-    if (!isEmpty()) {
-      tg.MainButton.show();
-    } else {
-      tg.MainButton.hide();
-    }
-  }, [cartItems]);
 
   return (
     <Context.Provider

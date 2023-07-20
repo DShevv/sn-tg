@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import CategoryList from "./components/CategoryList/CategoryList";
 import ProductsList from "./components/ProductsList/ProductsList";
 import Header from "./components/Header/Header";
+import ItemPage from "./components/ItemPage/ItemPage";
 
 const Container = styled.div`
   width: 100%;
@@ -27,7 +28,7 @@ function App() {
         <Routes>
           <Route index element={<CategoryList />} />
           <Route path="/:categoryId" element={<ProductsList />} />
-          <Route path="/:categoryId/:itemId" element={<div>item</div>} />
+          <Route path="/:categoryId/:itemId" element={<ItemPage />} />
         </Routes>
       </Container>
     </Provider>

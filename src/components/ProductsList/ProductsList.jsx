@@ -20,65 +20,82 @@ const data = [
     id: 1,
     title:
       "Item1Item1Item1Item1 Item1Item1Item1Item1 Item1Item1Item1Item1Item1",
+    price: 10.29,
   },
   {
     id: 2,
+    price: 10.39,
+
     title: "Item2",
   },
   {
     id: 3,
+    price: 10.99,
     title: "Item3",
   },
   {
     id: 4,
+    price: 10.99,
     title: "Item4",
   },
   {
     id: 5,
+    price: 10.99,
     title: "Item5",
   },
   {
     id: 6,
+    price: 10.99,
     title: "Item6",
   },
   {
     id: 7,
+    price: 10.99,
     title: "Item7",
   },
   {
     id: 8,
+    price: 10.99,
     title: "Item8",
   },
   {
     id: 9,
+    price: 10.99,
     title: "Item9",
   },
   {
     id: 10,
+    price: 10.99,
     title: "Item10",
   },
   {
     id: 11,
+    price: 10.99,
     title: "Item11",
   },
   {
     id: 12,
+    price: 10.99,
     title: "Item7",
   },
   {
     id: 13,
+    price: 10.99,
     title: "Item8",
   },
   {
     id: 14,
+    price: 10.99,
     title: "Item9",
   },
   {
     id: 15,
+    price: 10.99,
     title: "Item10",
   },
   {
     id: 16,
+    price: 10.99,
     title: "Item11",
   },
 ];
@@ -94,7 +111,7 @@ export default function ProductsList() {
     <Container>
       {data.map((item) => {
         return (
-          <ProductItem key={item.id} itemId={item.id}>
+          <ProductItem key={item.id} item={item}>
             {item.title}
           </ProductItem>
         );

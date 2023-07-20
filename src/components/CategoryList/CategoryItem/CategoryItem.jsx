@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 const Container = styled(Link)`
   width: 100%;
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-decoration: none;
   cursor: pointer;
   color: var(--tg-theme-text-color);
@@ -12,5 +14,9 @@ const Container = styled(Link)`
 `;
 
 export default function CategoryItem({ category, children }) {
-  return <Container to={`/${category}`}>{children}</Container>;
+  return (
+    <Container to={`/${category}`}>
+      {children} <div> &gt; </div>
+    </Container>
+  );
 }

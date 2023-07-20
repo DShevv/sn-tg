@@ -6,9 +6,14 @@ import CategoryItem from "./CategoryItem/CategoryItem";
 
 const Container = styled.div`
   width: 100%;
+  margin-top: 1px;
+  padding: 0 15px;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  gap: 1px;
+  background-color: var(--tg-theme-secondary-bg-color);
 `;
 
 const data = [
@@ -47,6 +52,34 @@ const data = [
   {
     id: 9,
     title: "Title 9",
+  },
+  {
+    id: 10,
+    title: "Title 10",
+  },
+  {
+    id: 11,
+    title: "Title 11",
+  },
+  {
+    id: 12,
+    title: "Title 7",
+  },
+  {
+    id: 13,
+    title: "Title 8",
+  },
+  {
+    id: 14,
+    title: "Title 9",
+  },
+  {
+    id: 15,
+    title: "Title 10",
+  },
+  {
+    id: 16,
+    title: "Title 11",
   },
 ];
 

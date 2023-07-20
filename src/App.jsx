@@ -10,6 +10,7 @@ import ItemPage from "./components/ItemPage/ItemPage";
 
 const Container = styled.div`
   width: 100%;
+  padding-top: 40px;
   min-height: 100%;
   overflow: hidden;
 `;

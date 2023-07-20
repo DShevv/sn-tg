@@ -6,6 +6,8 @@ const StyledHeader = styled.div`
   width: 100%;
   height: 40px;
   display: flex;
+  position: fixed;
+  top: 0;
   align-items: center;
   background: var(--tg-theme-secondary-bg-color);
   justify-content: space-between;

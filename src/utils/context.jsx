@@ -52,6 +52,9 @@ function Provider(props) {
   const getCount = (id) => {
     return cartItems.find((elem) => elem.id === id)?.count;
   };
+  const getCartCount = () => {
+    return cartItems.reduce((count, elem) => count + elem.count, 0);
+  };
 
   const getCartPrice = () => {
     return cartItems.reduce((acc, elem) => acc + elem.price * elem.count, 0);
@@ -68,6 +71,7 @@ function Provider(props) {
         isInCart,
         getCount,
         getCartPrice,
+        getCartCount,
       }}
     >
       {props?.children}

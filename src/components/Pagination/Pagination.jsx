@@ -1,9 +1,11 @@
 import { styled } from "styled-components";
 import useQuery from "../../hooks/useQuery";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   display: flex;
+  padding: 15px;
   gap: 5px;
 `;
 
@@ -22,7 +24,7 @@ const CurrentPage = styled.div`
   background-color: var(--tg-theme-button-color);
 `;
 
-const PaginationButton = styled(Link)`
+const PaginationButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,23 +48,38 @@ const PaginationButton = styled(Link)`
 
 export default function Pagination() {
   const location = useLocation();
+  const navigate = useNavigate();
   const query = useQuery();
-  let page = Number(query.get("page"));
-  if (!page || page === 0) {
-    page = 1;
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    let newPage = Number(query.get("page"));
+    if (!newPage || newPage === 0) {
+      newPage = 1;
+    }
+    setPage(newPage);
+  }, [query]);
+
+  function handleClick(newPage) {
+    navigate(`${location.pathname}?page=${newPage}`);
+    window.scrollTo(0, 0);
   }
 
   return (
     <Container>
       <PaginationButton
-        to={`${location.pathname}?page=${1}`}
+        onClick={() => {
+          handleClick(1);
+        }}
         className={page === 1 ? "disabled" : ""}
       >
         {" "}
         {"<<"}{" "}
       </PaginationButton>
       <PaginationButton
-        to={`${location.pathname}?page=${page - 1}`}
+        onClick={() => {
+          handleClick(page - 1);
+        }}
         className={page === 1 ? "disabled" : ""}
       >
         {" "}
@@ -71,12 +88,16 @@ export default function Pagination() {
       <CurrentPage>{page}</CurrentPage>
       <PaginationButton
         className={page === 10 ? "disabled" : ""}
-        to={`${location.pathname}?page=${page + 1}`}
+        onClick={() => {
+          handleClick(page + 1);
+        }}
       >
         {">"}
       </PaginationButton>
       <PaginationButton
-        to={`${location.pathname}?page=${10}`}
+        onClick={() => {
+          handleClick(10);
+        }}
         className={page === 10 ? "disabled" : ""}
       >
         {" "}

@@ -5,6 +5,7 @@ import { useTelegram } from "../../hooks/useTelegram";
 
 const Container = styled.div`
   width: 100%;
+  padding-top: 30px;
 `;
 
 const Item = styled.div`

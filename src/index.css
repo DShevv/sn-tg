@@ -16,3 +16,11 @@ body {
 body {
   background-color: var(--tg-theme-secondary-bg-color);
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

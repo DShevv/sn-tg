@@ -3,9 +3,10 @@ import { useTelegram } from "../../hooks/useTelegram";
 
 const StyledHeader = styled.div`
   width: 100%;
-  height: 50px;
+  height: 40px;
   display: flex;
-  background: var(--tg-theme-bg-color);
+  align-items: center;
+  background: var(--tg-theme-secondary-bg-color);
   justify-content: space-between;
   padding: 5px 15px;
 `;
@@ -17,10 +18,11 @@ const UserName = styled.span`
 `;
 
 export default function Header() {
-  const { user } = useTelegram();
+  const { user, onClose } = useTelegram();
 
   return (
     <StyledHeader>
+      <button onClick={onClose}>Close</button>
       <UserName>{user?.username}</UserName>
     </StyledHeader>
   );

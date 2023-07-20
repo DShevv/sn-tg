@@ -103,10 +103,6 @@ const data = [
 export default function ProductsList() {
   const { categoryId } = useParams();
 
-  useEffect(() => {
-    console.log(categoryId);
-  });
-
   return (
     <Container>
       {data.map((item) => {

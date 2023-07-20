@@ -16,6 +16,7 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 600;
+  color: var(--tg-theme-text-color);
 `;
 
 const Info = styled.div`
@@ -46,7 +47,18 @@ const AddButton = styled(Button)`
 const ButtonContainer = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  gap: 2.5px;
+`;
+
+const Count = styled.div`
+  width: 110px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tg-theme-text-color);
 `;
 
 const testData = {
@@ -79,6 +91,7 @@ export default function ItemPage() {
         <Button type="remove" onClick={removeHandler}>
           Remove
         </Button>
+        <Count>{getCount(testData.id)}</Count>
         <AddButton
           type="add"
           onClick={addHandler}

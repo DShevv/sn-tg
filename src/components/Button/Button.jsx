@@ -7,7 +7,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   height: 50px;
   width: 110px;
-
+  cursor: pointer;
   outline: none;
   border: none;
   color: var(--tg-theme-button-text-color);

@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import ProductItem from "./ProductItem/ProductItem";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;

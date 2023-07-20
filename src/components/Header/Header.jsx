@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { useTelegram } from "../../hooks/useTelegram";
 import { useLocation, useNavigate } from "react-router-dom";
+import HeaderCart from "./HeaderCart/HeaderCart";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -14,17 +15,18 @@ const StyledHeader = styled.div`
   padding: 5px 15px;
 `;
 
-const UserName = styled.span`
-  font-size: 14px;
+const CategoryName = styled.span`
+  font-size: 16px;
   font-weight: bold;
   color: var(--tg-theme-text-color);
 `;
 
 export default function Header() {
-  const { user, onClose } = useTelegram();
+  const { onClose } = useTelegram();
   const navigation = useNavigate();
   const location = useLocation();
   const isMainPage = location.pathname === "/";
+  const categoryId = location.pathname.split("/")[1];
 
   function goBack() {
     navigation(-1);
@@ -35,7 +37,8 @@ export default function Header() {
       <button onClick={isMainPage ? onClose : goBack}>
         {isMainPage ? "Close" : "Back"}
       </button>
-      <UserName>{user?.username}</UserName>
+      <CategoryName>{categoryId}</CategoryName>
+      <HeaderCart />
     </StyledHeader>
   );
 }

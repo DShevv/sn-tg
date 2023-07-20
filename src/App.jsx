@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import CategoryList from "./components/CategoryList/CategoryList";
 import ProductsList from "./components/ProductsList/ProductsList";
+import Header from "./components/Header/Header";
 
 const Container = styled.div`
   width: 100%;
@@ -22,6 +23,7 @@ function App() {
   return (
     <Provider>
       <Container>
+        <Header />
         <Routes>
           <Route index element={<CategoryList />} />
           <Route path="/:categoryId" element={<ProductsList />} />

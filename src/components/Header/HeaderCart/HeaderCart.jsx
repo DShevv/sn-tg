@@ -1,18 +1,16 @@
 import { styled } from "styled-components";
-import cartIcon from "../../../assets/cart.svg";
 
-const Icon = styled.img`
+const Icon = styled.div`
   width: 30px;
   height: 30px;
 `;
 
 export default function HeaderCart() {
-  return <Icon src={cartIcon} alt="" />;
-
-  /* <div>
+  return (
+    <Icon>
       <svg
-        width="800px"
-        height="800px"
+        width="30px"
+        height="30px"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +59,7 @@ export default function HeaderCart() {
             strokeLinejoin="round"
           />
         </g>
-      </svg> 
-    </div>*/
+      </svg>
+    </Icon>
+  );
 }

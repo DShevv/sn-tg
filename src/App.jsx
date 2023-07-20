@@ -7,6 +7,7 @@ import CategoryList from "./components/CategoryList/CategoryList";
 import ProductsList from "./components/ProductsList/ProductsList";
 import Header from "./components/Header/Header";
 import ItemPage from "./components/ItemPage/ItemPage";
+import Cart from "./components/Cart/Cart";
 
 const Container = styled.div`
   width: 100%;
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<CategoryList />} />
           <Route path="/:categoryId" element={<ProductsList />} />
           <Route path="/:categoryId/:itemId" element={<ItemPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Container>
     </Provider>

@@ -22,6 +22,7 @@ const CountLabel = styled.div`
   left: 110%;
   transform: translateX(-100%);
   font-size: 12px;
+  font-weight: 700;
   border-radius: 50%;
   background: var(--tg-theme-text-color);
   color: var(--tg-theme-bg-color);

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Container = styled(Link)`
   width: 100%;
-  padding: 15px 0;
+  padding: 15px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;

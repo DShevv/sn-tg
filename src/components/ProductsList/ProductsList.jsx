@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Container = styled.div`
   width: 100%;
   margin-top: 1px;
-  padding: 0 15px;
+
   min-height: 100vh;
   display: flex;
   align-items: center;

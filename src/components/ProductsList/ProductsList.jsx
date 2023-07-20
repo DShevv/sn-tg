@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
 import ProductItem from "./ProductItem/ProductItem";
 import { useParams } from "react-router-dom";
+import useQuery from "../../hooks/useQuery";
+import Pagination from "../Pagination/Pagination";
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -101,6 +104,12 @@ const data = [
 
 export default function ProductsList() {
   const { categoryId } = useParams();
+  const query = useQuery();
+  let page = Number(query.get("page"));
+
+  useEffect(() => {
+    console.log(page);
+  }, [page]);
 
   return (
     <Container>
@@ -111,6 +120,7 @@ export default function ProductsList() {
           </ProductItem>
         );
       })}
+      <Pagination />
     </Container>
   );
 }

@@ -37,6 +37,7 @@ const ItemValue = styled.div`
 
 const ItemCount = styled.div`
   font-size: 16px;
+  font-weight: 600;
   color: var(--tg-theme-button-color);
 `;
 
@@ -71,8 +72,8 @@ export default function Cart() {
               <ItemTitle>{elem.title}</ItemTitle>
 
               <ValueContainer>
-                <ItemValue>{elem.price}</ItemValue> *
-                <ItemCount>{elem.count}</ItemCount>
+                <ItemCount>{elem.count}</ItemCount> *
+                <ItemValue>{elem.price}</ItemValue>
               </ValueContainer>
             </Item>
           );

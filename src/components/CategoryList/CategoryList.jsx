@@ -3,6 +3,8 @@ import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../../hooks/useTelegram";
 import CategoryItem from "./CategoryItem/CategoryItem";
+import Pagination from "../Pagination/Pagination";
+import useQuery from "../../hooks/useQuery";
 
 const Container = styled.div`
   width: 100%;
@@ -85,6 +87,12 @@ const data = [
 export default function CategoryList() {
   const { tg } = useTelegram();
   const navigate = useNavigate();
+  const query = useQuery();
+  let page = Number(query.get("page"));
+
+  useEffect(() => {
+    console.log(page);
+  }, [page]);
 
   const toCart = useCallback(() => {
     navigate("/cart");
@@ -111,6 +119,7 @@ export default function CategoryList() {
           </CategoryItem>
         );
       })}
+      <Pagination />
     </Container>
   );
 }

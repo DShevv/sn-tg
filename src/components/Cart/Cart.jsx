@@ -9,23 +9,35 @@ const Container = styled.div`
 
 const Item = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
   gap: 20px;
 `;
 
 const ItemTitle = styled.div`
-  font-size: 14px;
+  font-size: 18px;
+  color: var(--tg-theme-text-color);
+`;
+
+const ValueContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+
   color: var(--tg-theme-text-color);
 `;
 
 const ItemValue = styled.div`
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--tg-theme-text-color);
 `;
 
 const ItemCount = styled.div`
-  font-size: 14px;
-  color: #c0a448;
+  font-size: 16px;
+  color: var(--tg-theme-button-color);
 `;
 
 export default function Cart() {
@@ -56,11 +68,12 @@ export default function Cart() {
         {cartItems.map((elem) => {
           return (
             <Item key={elem.id}>
-              <div>
-                <ItemTitle>{elem.title}</ItemTitle>
+              <ItemTitle>{elem.title}</ItemTitle>
+
+              <ValueContainer>
+                <ItemValue>{elem.price}</ItemValue> *
                 <ItemCount>{elem.count}</ItemCount>
-              </div>
-              <ItemValue>{elem.price}</ItemValue>
+              </ValueContainer>
             </Item>
           );
         })}

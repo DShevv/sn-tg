@@ -17,8 +17,17 @@ const StyledHeader = styled.div`
 
 const CategoryName = styled.span`
   font-size: 16px;
-  font-weight: bold;
+  fontweight: bold;
   color: var(--tg-theme-text-color);
+`;
+
+const BackButton = styled.button`
+  width: 30px;
+  height: 30px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
 `;
 
 export default function Header() {
@@ -34,9 +43,42 @@ export default function Header() {
 
   return (
     <StyledHeader>
-      <button onClick={isMainPage ? onClose : goBack}>
-        {isMainPage ? "Close" : "Back"}
-      </button>
+      <BackButton onClick={isMainPage ? onClose : goBack}>
+        {isMainPage ? (
+          <svg
+            width="30px"
+            height="30px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 5L5 19M5.00001 5L19 19"
+              stroke="var(--tg-theme-text-color)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="30px"
+            height="30px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 12H4M4 12L10 6M4 12L10 18"
+              stroke="var(--tg-theme-text-color)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
+      </BackButton>
+
       <CategoryName>{categoryId}</CategoryName>
       <HeaderCart />
     </StyledHeader>

@@ -18,8 +18,8 @@ const CountLabel = styled.div`
   align-items: center;
   width: 20px;
   height: 20px;
-  top: 0;
-  left: 100%;
+  top: -10%;
+  left: 110%;
   transform: translateX(-100%);
   font-size: 12px;
   border-radius: 50%;

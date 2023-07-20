@@ -1,13 +1,44 @@
+import { useContext } from "react";
 import { styled } from "styled-components";
+import { Context } from "../../../utils/context";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 const Icon = styled.div`
+  position: relative;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+`;
+
+const CountLabel = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+  font-size: 12px;
+  border-radius: 50%;
+  background: var(--tg-theme-text-color);
+  color: var(--tg-theme-bg-color);
 `;
 
 export default function HeaderCart() {
+  const navigate = useNavigate();
+  const { getCartCount } = useContext(Context);
+  const count = getCartCount();
+
+  const toCart = useCallback(() => {
+    navigate("/cart");
+  }, []);
+
   return (
-    <Icon>
+    <Icon onClick={toCart}>
+      {count ? <CountLabel>{count}</CountLabel> : ""}
       <svg
         width="30px"
         height="30px"

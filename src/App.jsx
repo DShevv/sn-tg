@@ -11,7 +11,7 @@ import Cart from "./components/Cart/Cart";
 
 const Container = styled.div`
   width: 100%;
-  padding-top: 40px;
+  padding-top: 50px;
   min-height: 100%;
   overflow: hidden;
 `;

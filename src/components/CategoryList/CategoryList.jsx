@@ -94,9 +94,7 @@ export default function CategoryList() {
   const navigate = useNavigate();
   const query = useQuery();
   let page = Number(query.get("page"));
-  const [data, isLoading, error] = useFetch(
-    `http://79.137.203.212:8099/categories`
-  );
+  const [data, isLoading, error] = useFetch(`/api/categories`);
 
   useEffect(() => {
     console.log(page);

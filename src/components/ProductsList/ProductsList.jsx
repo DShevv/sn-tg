@@ -109,9 +109,7 @@ export default function ProductsList() {
   const { categoryId } = useParams();
   const query = useQuery();
   let page = Number(query.get("page"));
-  const [data, isLoading, error] = useFetch(
-    `http://79.137.203.212:8099/products`
-  );
+  const [data, isLoading, error] = useFetch(`/api/products`);
 
   useEffect(() => {
     console.log(page);

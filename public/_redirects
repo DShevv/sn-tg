@@ -1,1 +1,2 @@
-/api/* http://79.137.203.212:8099
+/api/categories/* http://79.137.203.212:8099/categories
+/api/products/* http://79.137.203.212:8099/products

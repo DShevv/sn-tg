@@ -6,7 +6,8 @@ import getSymbolFromCurrency from "currency-symbol-map";
 
 const Container = styled(Link)`
   width: 100%;
-  padding: 15px 15px;
+  min-height: 50px;
+  padding: 5px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,12 +19,12 @@ const Container = styled(Link)`
 `;
 
 const Title = styled.div`
-  flex: 1 0 70%;
+  flex: 1 0 65%;
 `;
 
 const Info = styled.div`
   display: flex;
-  flex: 1 0 20%;
+  flex: 1 0 25%;
   height: 100%;
   flex-direction: column;
   align-items: center;

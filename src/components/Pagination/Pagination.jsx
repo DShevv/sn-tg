@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
 import useQuery from "../../hooks/useQuery";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Container = styled.div`
+  position: absolute;
+  bottom: 0;
   display: flex;
-  padding: 15px;
-  gap: 5px;
+  padding: 10px;
+  gap: 35px;
 `;
 
 const CurrentPage = styled.div`

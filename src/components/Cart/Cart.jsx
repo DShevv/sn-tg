@@ -70,7 +70,7 @@ export default function Cart() {
         {cartItems.map((elem) => {
           return (
             <Item key={elem.id}>
-              <ItemTitle>{elem.title}</ItemTitle>
+              <ItemTitle>{elem.name}</ItemTitle>
 
               <ValueContainer>
                 <ItemCount>{elem.count}</ItemCount> *

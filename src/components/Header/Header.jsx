@@ -5,7 +5,7 @@ import HeaderCart from "./HeaderCart/HeaderCart";
 
 const StyledHeader = styled.div`
   width: 100%;
-  height: 40px;
+  height: 50px;
   display: flex;
   position: fixed;
   top: 0;

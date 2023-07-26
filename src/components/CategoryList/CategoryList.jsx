@@ -5,19 +5,24 @@ import { useTelegram } from "../../hooks/useTelegram";
 import CategoryItem from "./CategoryItem/CategoryItem";
 import Pagination from "../Pagination/Pagination";
 import useQuery from "../../hooks/useQuery";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../Loader/Loader";
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   margin-top: 1px;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
+
   gap: 1px;
   background-color: var(--tg-theme-secondary-bg-color);
 `;
 
-const data = [
+/* const data = [
   {
     id: 1,
     title: "Title 1",
@@ -82,17 +87,24 @@ const data = [
     id: 16,
     title: "Title 11",
   },
-];
+]; */
 
 export default function CategoryList() {
   const { tg } = useTelegram();
   const navigate = useNavigate();
   const query = useQuery();
   let page = Number(query.get("page"));
+  const [data, isLoading, error] = useFetch(
+    `http://79.137.203.212:8099/categories`
+  );
 
   useEffect(() => {
     console.log(page);
   }, [page]);
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
   const toCart = useCallback(() => {
     navigate("/cart");
@@ -112,13 +124,17 @@ export default function CategoryList() {
 
   return (
     <Container>
-      {data.map((item) => {
-        return (
-          <CategoryItem key={item.id} category={item.id}>
-            {item.title}
-          </CategoryItem>
-        );
-      })}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        data.map((item) => {
+          return (
+            <CategoryItem key={item.id} category={item.id}>
+              {item.name}
+            </CategoryItem>
+          );
+        })
+      )}
       <Pagination />
     </Container>
   );

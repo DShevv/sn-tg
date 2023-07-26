@@ -1,4 +1,8 @@
-export default function getCurrencySymbol(locale, currency) {
+export function getUserLocate(langCode) {
+  return `${langCode}-${langCode.toUpperCase()}`;
+}
+
+export function getCurrencySymbol(locale, currency) {
   return (0)
     .toLocaleString(locale, {
       style: "currency",

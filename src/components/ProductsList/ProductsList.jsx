@@ -110,7 +110,7 @@ export default function ProductsList() {
   const query = useQuery();
   let page = Number(query.get("page"));
   const [data, isLoading, error] = useFetch(
-    `http://79.137.203.212:8099/products`
+    `https://sport-nutrition-app.onrender.com/products`
   );
 
   useEffect(() => {

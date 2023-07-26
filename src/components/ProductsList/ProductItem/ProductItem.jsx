@@ -1,10 +1,8 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
-import {
-  getCurrencySymbol,
-  getUserLocate,
-} from "../../../utils/currencyFormatter";
+import { getUserLocate } from "../../../utils/currencyFormatter";
 import { useTelegram } from "../../../hooks/useTelegram";
+import getSymbolFromCurrency from "currency-symbol-map";
 
 const Container = styled(Link)`
   width: 100%;
@@ -51,7 +49,7 @@ export default function ProductItem({ item, children }) {
       <Title>{children}</Title>
       <Info>
         <Price>
-          {getCurrencySymbol(getUserLocate(user.language_code), item.currency)}{" "}
+          {getSymbolFromCurrency(item.currency)}{" "}
           {item.price.toLocaleString(getUserLocate(user.language_code), {
             style: "currency",
             currency: item.currency,

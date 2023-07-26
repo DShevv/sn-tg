@@ -129,7 +129,7 @@ export default function CategoryList() {
       ) : (
         data.map((item) => {
           return (
-            <CategoryItem key={item.id} category={item.id}>
+            <CategoryItem key={item.id} category={item}>
               {item.name}
             </CategoryItem>
           );

@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 import { useTelegram } from "../../hooks/useTelegram";
 import { useLocation, useNavigate } from "react-router-dom";
 import HeaderCart from "./HeaderCart/HeaderCart";
+import { useContext } from "react";
+import { HeaderContext } from "../../utils/headerTitelContext";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -31,11 +33,12 @@ const BackButton = styled.button`
 `;
 
 export default function Header() {
+  const { title } = useContext(HeaderContext);
   const { onClose } = useTelegram();
   const navigation = useNavigate();
   const location = useLocation();
   const isMainPage = location.pathname === "/";
-  const categoryId = location.pathname.split("/")[1];
+  //const categoryId = location.pathname.split("/")[1];
 
   function goBack() {
     navigation(-1);
@@ -79,7 +82,7 @@ export default function Header() {
         )}
       </BackButton>
 
-      <CategoryName>{categoryId}</CategoryName>
+      <CategoryName>{title}</CategoryName>
       <HeaderCart />
     </StyledHeader>
   );

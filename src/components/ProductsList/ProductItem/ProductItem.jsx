@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
+import getCurrencySymbol from "../../../utils/getCurrencySymbol";
+import { useTelegram } from "../../../hooks/useTelegram";
 
 const Container = styled(Link)`
   width: 100%;
@@ -39,11 +41,22 @@ const Mass = styled.div`
 `;
 
 export default function ProductItem({ item, children }) {
+  const { user } = useTelegram();
+
   return (
     <Container to={`${item.id}`}>
       <Title>{children}</Title>
       <Info>
-        <Price>${item.price}</Price>
+        <Price>
+          {getCurrencySymbol(
+            `${user.language_code}-${user.language_code.toUpperCase()}`,
+            item.currency
+          )}{" "}
+          {item.price.toLocaleString("en-US", {
+            style: "currency",
+            currency: item.currency,
+          })}
+        </Price>
         <Mass>80 pills</Mass>
       </Info>
     </Container>

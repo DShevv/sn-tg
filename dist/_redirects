@@ -1,2 +1,4 @@
-/api/categories/* http://79.137.203.212:8099/categories
-/api/products/* http://79.137.203.212:8099/products
+/api http://79.137.203.212:8099/:splat 200
+
+/api/categories/* http://79.137.203.212:8099/categories:splat 200
+/api/products/* http://79.137.203.212:8099/products:splat 200

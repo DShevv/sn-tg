@@ -5,6 +5,9 @@ import { useContext } from "react";
 import { Context } from "../../utils/context";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../Loader/Loader";
+import { useTelegram } from "../../hooks/useTelegram";
+import { getUserLocate } from "../../../utils/currencyFormatter";
+import getSymbolFromCurrency from "currency-symbol-map";
 
 const Container = styled.div`
   width: 100%;
@@ -76,6 +79,7 @@ export default function ItemPage() {
   const [data, isLoading, error] = useFetch(
     `https://sport-nutrition-app.onrender.com/products`
   );
+  const { user } = useTelegram();
 
   function addHandler() {
     addItem(data[itemId]);
@@ -91,10 +95,19 @@ export default function ItemPage() {
         <Loader />
       ) : (
         <>
-          <Title>{data[itemId].title}</Title>
+          <Title>{data[itemId].name}</Title>
           <Info>
-            <Mass>{data[itemId].mass} pills</Mass>
-            <Price>BYN {data[itemId].price}</Price>
+            <Mass>{data[itemId].description} </Mass>
+            <Price>
+              {getSymbolFromCurrency(data[itemId].currency)}{" "}
+              {data[itemId].price.toLocaleString(
+                getUserLocate(user.language_code),
+                {
+                  style: "currency",
+                  currency: data[itemId].currency,
+                }
+              )}
+            </Price>
           </Info>
           <ButtonContainer>
             <Button type="remove" onClick={removeHandler}>

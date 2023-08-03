@@ -6,7 +6,7 @@ import { Context } from "../../utils/context";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../Loader/Loader";
 import { useTelegram } from "../../hooks/useTelegram";
-import { getUserLocate } from "../../../utils/currencyFormatter";
+import { getUserLocate } from "../../utils/currencyFormatter";
 import getSymbolFromCurrency from "currency-symbol-map";
 
 const Container = styled.div`

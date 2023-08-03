@@ -33,7 +33,7 @@ const Info = styled.div`
 
 const Price = styled.div`
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--tg-theme-text-color);
 `;
 

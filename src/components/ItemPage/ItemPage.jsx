@@ -3,6 +3,8 @@ import Button from "../Button/Button";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../utils/context";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../Loader/Loader";
 
 const Container = styled.div`
   width: 100%;
@@ -61,45 +63,54 @@ const Count = styled.div`
   color: var(--tg-theme-text-color);
 `;
 
-const testData = {
+/* const testData = {
   id: 1,
   title: "WL Magnesium Chelated 200mg",
   price: 10.59,
   mass: 100,
 };
-
+ */
 export default function ItemPage() {
   const { itemId } = useParams();
   const { addItem, removeItem, isInCart, getCount } = useContext(Context);
+  const [data, isLoading, error] = useFetch(
+    `https://sport-nutrition-app.onrender.com/products`
+  );
 
   function addHandler() {
-    addItem(testData);
+    addItem(data[itemId]);
   }
 
   function removeHandler() {
-    removeItem(testData.id);
+    removeItem(data[itemId].id);
   }
 
   return (
     <Container>
-      <Title>{testData.title}</Title>
-      <Info>
-        <Mass>{testData.mass} pills</Mass>
-        <Price>BYN {testData.price}</Price>
-      </Info>
-      <ButtonContainer>
-        <Button type="remove" onClick={removeHandler}>
-          Remove
-        </Button>
-        <Count>{getCount(testData.id)}</Count>
-        <AddButton
-          type="add"
-          onClick={addHandler}
-          isFull={!isInCart(testData.id)}
-        >
-          Add
-        </AddButton>
-      </ButtonContainer>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Title>{data[itemId].title}</Title>
+          <Info>
+            <Mass>{data[itemId].mass} pills</Mass>
+            <Price>BYN {data[itemId].price}</Price>
+          </Info>
+          <ButtonContainer>
+            <Button type="remove" onClick={removeHandler}>
+              Remove
+            </Button>
+            <Count>{getCount(data[itemId].id)}</Count>
+            <AddButton
+              type="add"
+              onClick={addHandler}
+              isFull={!isInCart(data[itemId].id)}
+            >
+              Add
+            </AddButton>
+          </ButtonContainer>
+        </>
+      )}
     </Container>
   );
 }
